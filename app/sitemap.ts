@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tools/feeding-calculator",
     "/tools/neuter-timing",
     "/tools/weight-management",
+    "/tools/nearby-vet",
     "/about",
     "/privacy",
   ];

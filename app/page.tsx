@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import TrustBadges from "@/components/TrustBadges";
-import { CatFaceIcon, DogFaceIcon, BowlIcon, NeuterHeartIcon, WeightPawIcon, PawIcon } from "@/components/PetIcons";
+import { CatFaceIcon, DogFaceIcon, BowlIcon, NeuterHeartIcon, WeightPawIcon, HospitalIcon, PawIcon } from "@/components/PetIcons";
 
 export default function Home() {
   return (
@@ -70,6 +70,12 @@ export default function Home() {
             title="体重管理"
             desc="BCS簡易チェックと減量ペースの目安"
             icon={<WeightPawIcon />}
+          />
+          <NavCard
+            href="/tools/nearby-vet"
+            title="近くの動物病院を探す"
+            desc="現在地から近い病院を距離順に表示"
+            icon={<HospitalIcon />}
           />
         </div>
       </div>

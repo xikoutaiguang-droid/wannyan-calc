@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CatFaceIcon, DogFaceIcon, BowlIcon, NeuterHeartIcon, WeightPawIcon } from "@/components/PetIcons";
+import { CatFaceIcon, DogFaceIcon, BowlIcon, NeuterHeartIcon, WeightPawIcon, HospitalIcon } from "@/components/PetIcons";
 
 export const metadata: Metadata = {
   title: "計算ツール一覧",
@@ -38,6 +38,12 @@ const tools = [
     title: "体重管理",
     desc: "BCS簡易チェックと、減量が必要な場合の安全なペースの目安",
     icon: <WeightPawIcon />,
+  },
+  {
+    href: "/tools/nearby-vet",
+    title: "近くの動物病院を探す",
+    desc: "現在地から近い動物病院を距離順に表示。緊急時は電話確認を",
+    icon: <HospitalIcon />,
   },
 ];
 

@@ -106,6 +106,20 @@ export function WeightPawIcon({ size = 22 }: { size?: number }) {
   );
 }
 
+export function HospitalIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="4" fill="currentColor" />
+      <path
+        d="M12 7.5v9M7.5 12h9"
+        stroke="var(--surface)"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export function PawIcon({ size = 18 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
