@@ -36,7 +36,7 @@ export default function NeuterTimingPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <h1 className="font-serif-jp mb-2 text-xl font-semibold sm:text-2xl">去勢・避妊のタイミング目安</h1>
       <p className="mb-6 text-base text-muted">
-        猫・犬の去勢・避妊手術について、一般的に紹介されている時期の目安がわかります。
+        ねこちゃん・わんちゃんの去勢・避妊手術について、一般的に紹介されている時期の目安がわかります。
       </p>
       <TrustBadges />
       <NeuterTimingGuide />

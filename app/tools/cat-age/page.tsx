@@ -35,9 +35,9 @@ export default function CatAgePage() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-6 sm:py-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <h1 className="font-serif-jp mb-2 text-xl font-semibold sm:text-2xl">猫の年齢計算機</h1>
+      <h1 className="font-serif-jp mb-2 text-xl font-semibold sm:text-2xl">ねこちゃんの年齢計算機</h1>
       <p className="mb-6 text-base text-muted">
-        猫の年齢を入力すると、人間の年齢に換算した目安がわかります。うちの猫が今どのくらいのライフステージにいるか、健康管理の参考にお使いください。
+        ねこちゃんの年齢を入力すると、人間の年齢に換算した目安がわかります。うちのねこちゃんが今どのくらいのライフステージにいるか、健康管理の参考にお使いください。
       </p>
       <TrustBadges />
       <CatAgeCalculator />

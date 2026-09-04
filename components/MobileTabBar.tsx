@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 
 const TABS = [
   { href: "/", label: "ホーム", icon: HomeIcon },
-  { href: "/tools/cat-age", label: "猫年齢", icon: CatIcon },
-  { href: "/tools/dog-age", label: "犬年齢", icon: DogIcon },
-  { href: "/tools/feeding-calculator", label: "給餌量", icon: CalcIcon },
+  { href: "/tools/cat-age", label: "ねこ", icon: CatIcon },
+  { href: "/tools/dog-age", label: "わんこ", icon: DogIcon },
+  { href: "/tools/feeding-calculator", label: "ごはん", icon: CalcIcon },
   { href: "/tools", label: "一覧", icon: ListIcon },
 ];
 

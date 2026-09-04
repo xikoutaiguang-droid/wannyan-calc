@@ -35,9 +35,9 @@ export default function DogAgePage() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-6 sm:py-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <h1 className="font-serif-jp mb-2 text-xl font-semibold sm:text-2xl">犬の年齢計算機</h1>
+      <h1 className="font-serif-jp mb-2 text-xl font-semibold sm:text-2xl">わんちゃんの年齢計算機</h1>
       <p className="mb-6 text-base text-muted">
-        犬の年齢と体格を入力すると、人間の年齢に換算した目安がわかります。健康管理やシニア期に向けた準備の参考にお使いください。
+        わんちゃんの年齢と体格を入力すると、人間の年齢に換算した目安がわかります。健康管理やシニア期に向けた準備の参考にお使いください。
       </p>
       <TrustBadges />
       <DogAgeCalculator />

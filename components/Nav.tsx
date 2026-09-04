@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import { SITE_NAME } from "@/lib/siteConfig";
 
 const links = [
-  { href: "/tools/cat-age", label: "猫の年齢" },
-  { href: "/tools/dog-age", label: "犬の年齢" },
-  { href: "/tools/feeding-calculator", label: "給餌量" },
+  { href: "/tools/cat-age", label: "ねこの年齢" },
+  { href: "/tools/dog-age", label: "わんこの年齢" },
+  { href: "/tools/feeding-calculator", label: "ごはんの量" },
   { href: "/tools", label: "ツール一覧" },
 ];
 

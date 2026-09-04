@@ -34,9 +34,9 @@ export default function FeedingCalculatorPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-6 sm:py-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <h1 className="font-serif-jp mb-2 text-xl font-semibold sm:text-2xl">給餌量計算機</h1>
+      <h1 className="font-serif-jp mb-2 text-xl font-semibold sm:text-2xl">ごはんの量計算機</h1>
       <p className="mb-6 text-base text-muted">
-        体重・ライフステージ・フードのカロリー表示を入力すると、1日の給餌量の目安がわかります。猫・犬どちらにも使えます。
+        体重・ライフステージ・フードのカロリー表示を入力すると、1日のごはんの量の目安がわかります。ねこちゃん・わんちゃんどちらにも使えます。
       </p>
       <TrustBadges />
       <FeedingCalculator />

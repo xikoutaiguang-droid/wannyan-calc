@@ -25,7 +25,7 @@ export default function NeuterTimingGuide() {
                 species === "cat" ? "border-accent bg-accent text-accent-foreground" : "border-border bg-surface"
               }`}
             >
-              猫
+              ねこ
             </button>
             <button
               type="button"
@@ -34,7 +34,7 @@ export default function NeuterTimingGuide() {
                 species === "dog" ? "border-accent bg-accent text-accent-foreground" : "border-border bg-surface"
               }`}
             >
-              犬
+              わんこ
             </button>
           </div>
         </div>
