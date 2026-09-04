@@ -16,7 +16,7 @@ export default function Home() {
       </div>
 
       <div className="relative mx-auto max-w-5xl px-4 py-10 sm:py-16">
-        <div className="grid items-center gap-8 sm:grid-cols-[1.15fr_1fr] sm:gap-10">
+        <div className="mb-12 grid items-center gap-8 sm:mb-16 sm:grid-cols-[1.15fr_1fr] sm:gap-10">
           <div>
             <div className="mb-3 flex items-center gap-3">
               <Image
@@ -46,16 +46,14 @@ export default function Home() {
           </div>
 
           <div className="mx-auto w-full max-w-xs sm:max-w-none">
-            <div className="overflow-hidden rounded-[2rem] border border-border shadow-lg">
-              <Image
-                src="/images/hero-cat-dog.png"
-                alt="計算機の前に並んで座る三毛猫と柴犬のイラスト"
-                width={1200}
-                height={1200}
-                priority
-                className="h-auto w-full"
-              />
-            </div>
+            <Image
+              src="/images/hero-cat-dog.png"
+              alt="計算機の前に並んで座る三毛猫と柴犬のイラスト"
+              width={1200}
+              height={1200}
+              priority
+              className="h-auto w-full rounded-[2rem]"
+            />
           </div>
         </div>
 
