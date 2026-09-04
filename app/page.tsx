@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
 import TrustBadges from "@/components/TrustBadges";
-import { CatFaceIcon, DogFaceIcon, BowlIcon, NeuterHeartIcon, WeightPawIcon, HospitalIcon, PawIcon } from "@/components/PetIcons";
+import { BowlIcon, NeuterHeartIcon, WeightPawIcon, HospitalIcon, PawIcon } from "@/components/PetIcons";
 
 export default function Home() {
   return (
@@ -19,12 +19,20 @@ export default function Home() {
         <div className="grid items-center gap-8 sm:grid-cols-[1.15fr_1fr] sm:gap-10">
           <div>
             <div className="mb-3 flex items-center gap-3">
-              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-accent-soft text-accent-strong sm:h-16 sm:w-16">
-                <CatFaceIcon size={30} />
-              </span>
-              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-accent-soft text-accent-strong sm:h-16 sm:w-16">
-                <DogFaceIcon size={30} />
-              </span>
+              <Image
+                src="/images/cat-face-icon.png"
+                alt="ねこちゃんのイラスト"
+                width={64}
+                height={64}
+                className="h-14 w-14 rounded-full object-cover sm:h-16 sm:w-16"
+              />
+              <Image
+                src="/images/dog-face-icon.png"
+                alt="わんちゃんのイラスト"
+                width={64}
+                height={64}
+                className="h-14 w-14 rounded-full object-cover sm:h-16 sm:w-16"
+              />
               <p className="text-sm font-medium tracking-wide text-accent-strong">ねこちゃん・わんちゃんの計算ツール集</p>
             </div>
             <h1 className="font-serif-jp mb-3 text-2xl font-semibold leading-snug sm:text-3xl">
@@ -56,13 +64,13 @@ export default function Home() {
             href="/tools/cat-age"
             title="ねこちゃんの年齢計算"
             desc="ねこちゃんの年齢を人間年齢に換算"
-            icon={<CatFaceIcon />}
+            imgSrc="/images/cat-face-icon.png"
           />
           <NavCard
             href="/tools/dog-age"
             title="わんちゃんの年齢計算"
             desc="体格を考慮して人間年齢に換算"
-            icon={<DogFaceIcon />}
+            imgSrc="/images/dog-face-icon.png"
           />
           <NavCard
             href="/tools/feeding-calculator"
@@ -94,14 +102,30 @@ export default function Home() {
   );
 }
 
-function NavCard({ href, title, desc, icon }: { href: string; title: string; desc: string; icon: ReactNode }) {
+function NavCard({
+  href,
+  title,
+  desc,
+  icon,
+  imgSrc,
+}: {
+  href: string;
+  title: string;
+  desc: string;
+  icon?: ReactNode;
+  imgSrc?: string;
+}) {
   return (
     <Link
       href={href}
       className="group rounded-2xl border border-border bg-surface p-4 shadow-sm transition active:scale-[0.98] sm:p-5 sm:hover:-translate-y-0.5 sm:hover:border-accent/40 sm:hover:shadow-md"
     >
-      <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-accent-soft text-accent-strong transition group-hover:scale-105">
-        {icon}
+      <div className="mb-3 flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-accent-soft text-accent-strong transition group-hover:scale-105">
+        {imgSrc ? (
+          <Image src={imgSrc} alt="" width={48} height={48} className="h-full w-full object-cover" />
+        ) : (
+          icon
+        )}
       </div>
       <p className="font-semibold">{title}</p>
       <p className="mt-1 text-sm text-muted">{desc}</p>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CatFaceIcon, DogFaceIcon, BowlIcon, NeuterHeartIcon, WeightPawIcon, HospitalIcon } from "@/components/PetIcons";
+import Image from "next/image";
+import { BowlIcon, NeuterHeartIcon, WeightPawIcon, HospitalIcon } from "@/components/PetIcons";
 
 export const metadata: Metadata = {
   title: "計算ツール一覧",
@@ -13,13 +14,13 @@ const tools = [
     href: "/tools/cat-age",
     title: "ねこちゃんの年齢計算",
     desc: "ねこちゃんの年齢を人間年齢に換算",
-    icon: <CatFaceIcon />,
+    imgSrc: "/images/cat-face-icon.png",
   },
   {
     href: "/tools/dog-age",
     title: "わんちゃんの年齢計算",
     desc: "体格(小型〜超大型)を考慮して人間年齢に換算",
-    icon: <DogFaceIcon />,
+    imgSrc: "/images/dog-face-icon.png",
   },
   {
     href: "/tools/feeding-calculator",
@@ -61,8 +62,12 @@ export default function ToolsPage() {
             href={t.href}
             className="group rounded-2xl border border-border bg-surface p-4 shadow-sm transition active:scale-[0.98] sm:p-5 sm:hover:-translate-y-0.5 sm:hover:border-accent/40 sm:hover:shadow-md"
           >
-            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-accent-soft text-accent-strong transition group-hover:scale-105">
-              {t.icon}
+            <div className="mb-3 flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-accent-soft text-accent-strong transition group-hover:scale-105">
+              {t.imgSrc ? (
+                <Image src={t.imgSrc} alt="" width={48} height={48} className="h-full w-full object-cover" />
+              ) : (
+                t.icon
+              )}
             </div>
             <p className="font-semibold">{t.title}</p>
             <p className="mt-1 text-sm text-muted">{t.desc}</p>
