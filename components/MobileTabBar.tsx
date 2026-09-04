@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const TABS = [
   { href: "/", label: "ホーム", icon: HomeIcon },
-  { href: "/tools/cat-age", label: "ねこ", icon: CatIcon },
-  { href: "/tools/dog-age", label: "わんこ", icon: DogIcon },
+  { href: "/tools/cat-age", label: "ねこ", imgSrc: "/images/cat-face-icon.png" },
+  { href: "/tools/dog-age", label: "わんこ", imgSrc: "/images/dog-face-icon.png" },
   { href: "/tools/feeding-calculator", label: "ごはん", icon: CalcIcon },
   { href: "/tools", label: "一覧", icon: ListIcon },
 ];
@@ -32,7 +33,19 @@ export default function MobileTabBar() {
                 active ? "text-accent" : "text-muted"
               }`}
             >
-              <Icon active={active} />
+              {tab.imgSrc ? (
+                <Image
+                  src={tab.imgSrc}
+                  alt=""
+                  width={22}
+                  height={22}
+                  className={`h-[22px] w-[22px] rounded-full object-cover transition ${
+                    active ? "ring-2 ring-accent" : "opacity-70"
+                  }`}
+                />
+              ) : (
+                Icon && <Icon active={active} />
+              )}
               {tab.label}
             </Link>
           );
@@ -47,30 +60,6 @@ function HomeIcon({ active }: { active: boolean }) {
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={active ? 2.4 : 1.8}>
       <path d="M3 11.5 12 4l9 7.5" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M5 10v9h14v-9" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function CatIcon({ active }: { active: boolean }) {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={active ? 2.4 : 1.8}>
-      <path d="M5 4 8 9h8l3-5-3 3.5H8L5 4Z" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M6 9v7a6 6 0 0 0 12 0V9" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="9.5" cy="14" r="0.6" fill="currentColor" />
-      <circle cx="14.5" cy="14" r="0.6" fill="currentColor" />
-    </svg>
-  );
-}
-
-function DogIcon({ active }: { active: boolean }) {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={active ? 2.4 : 1.8}>
-      <path d="M5 8c-1.5 0-2.5 1.5-2 3l1.5 1" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M19 8c1.5 0 2.5 1.5 2 3l-1.5 1" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M6 10a6 6 0 0 1 12 0v3a6 6 0 0 1-12 0v-3Z" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="9.5" cy="12.5" r="0.6" fill="currentColor" />
-      <circle cx="14.5" cy="12.5" r="0.6" fill="currentColor" />
-      <path d="M11 15h2" strokeLinecap="round" />
     </svg>
   );
 }
