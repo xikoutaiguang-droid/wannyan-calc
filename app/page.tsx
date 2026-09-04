@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ReactNode } from "react";
 import TrustBadges from "@/components/TrustBadges";
 import { CatFaceIcon, DogFaceIcon, BowlIcon, NeuterHeartIcon, WeightPawIcon, HospitalIcon, PawIcon } from "@/components/PetIcons";
@@ -10,35 +11,45 @@ export default function Home() {
         aria-hidden
         className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-accent-soft blur-3xl"
       />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-20 top-10 h-64 w-64 rounded-full bg-accent/10 blur-3xl"
-      />
-      <div aria-hidden className="pointer-events-none absolute right-6 top-6 text-accent/20 sm:right-16 sm:top-10">
-        <PawIcon size={56} />
-      </div>
       <div aria-hidden className="pointer-events-none absolute left-4 top-40 hidden text-accent/15 sm:block">
         <PawIcon size={34} />
       </div>
 
       <div className="relative mx-auto max-w-5xl px-4 py-10 sm:py-16">
-        <div className="mb-3 flex items-center gap-3">
-          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-accent-soft text-accent-strong sm:h-16 sm:w-16">
-            <CatFaceIcon size={30} />
-          </span>
-          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-accent-soft text-accent-strong sm:h-16 sm:w-16">
-            <DogFaceIcon size={30} />
-          </span>
-          <p className="text-sm font-medium tracking-wide text-accent-strong">ねこちゃん・わんちゃんの計算ツール集</p>
+        <div className="grid items-center gap-8 sm:grid-cols-[1.15fr_1fr] sm:gap-10">
+          <div>
+            <div className="mb-3 flex items-center gap-3">
+              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-accent-soft text-accent-strong sm:h-16 sm:w-16">
+                <CatFaceIcon size={30} />
+              </span>
+              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-accent-soft text-accent-strong sm:h-16 sm:w-16">
+                <DogFaceIcon size={30} />
+              </span>
+              <p className="text-sm font-medium tracking-wide text-accent-strong">ねこちゃん・わんちゃんの計算ツール集</p>
+            </div>
+            <h1 className="font-serif-jp mb-3 text-2xl font-semibold leading-snug sm:text-3xl">
+              わんにゃん計算ラボ
+            </h1>
+            <p className="mb-4 max-w-2xl text-base leading-relaxed text-muted">
+              ねこちゃん・わんちゃんの年齢を人間年齢に換算したり、体重とライフステージから1日のごはんの量の目安を計算できる無料ツール集です。
+              実際にねこちゃんを飼っている運営者が、実体験をもとに作っています。
+            </p>
+            <TrustBadges />
+          </div>
+
+          <div className="mx-auto w-full max-w-xs sm:max-w-none">
+            <div className="overflow-hidden rounded-[2rem] border border-border shadow-lg">
+              <Image
+                src="/images/hero-cat-dog.png"
+                alt="計算機の前に並んで座る三毛猫と柴犬のイラスト"
+                width={1200}
+                height={1200}
+                priority
+                className="h-auto w-full"
+              />
+            </div>
+          </div>
         </div>
-        <h1 className="font-serif-jp mb-3 text-2xl font-semibold leading-snug sm:text-3xl">
-          わんにゃん計算ラボ
-        </h1>
-        <p className="mb-4 max-w-2xl text-base leading-relaxed text-muted">
-          ねこちゃん・わんちゃんの年齢を人間年齢に換算したり、体重とライフステージから1日のごはんの量の目安を計算できる無料ツール集です。
-          実際にねこちゃんを飼っている運営者が、実体験をもとに作っています。
-        </p>
-        <TrustBadges />
 
         <div className="grid gap-3 sm:grid-cols-3 sm:gap-4">
           <NavCard
