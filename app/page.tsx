@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
 import TrustBadges from "@/components/TrustBadges";
-import { BowlIcon, NeuterHeartIcon, WeightPawIcon, HospitalIcon, PawIcon } from "@/components/PetIcons";
+import { PawIcon } from "@/components/PetIcons";
 
 export default function Home() {
   return (
@@ -74,25 +74,25 @@ export default function Home() {
             href="/tools/feeding-calculator"
             title="ごはんの量計算"
             desc="体重・ライフステージから1日の目安量を計算"
-            icon={<BowlIcon />}
+            imgSrc="/images/bowl-icon.png"
           />
           <NavCard
             href="/tools/neuter-timing"
             title="去勢・避妊の時期目安"
             desc="ねこちゃん・わんちゃんの一般的なタイミングの目安"
-            icon={<NeuterHeartIcon />}
+            imgSrc="/images/heart-icon.png"
           />
           <NavCard
             href="/tools/weight-management"
             title="体重管理"
             desc="BCS簡易チェックと減量ペースの目安"
-            icon={<WeightPawIcon />}
+            imgSrc="/images/scale-icon.png"
           />
           <NavCard
             href="/tools/nearby-vet"
             title="近くの動物病院を探す"
             desc="現在地から近い病院を距離順に表示"
-            icon={<HospitalIcon />}
+            imgSrc="/images/hospital-icon.png"
           />
         </div>
       </div>
