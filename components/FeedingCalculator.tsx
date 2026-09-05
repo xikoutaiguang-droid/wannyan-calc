@@ -7,6 +7,8 @@ import {
   AFFILIATE_GUT_SUPPLEMENT_PIXEL,
   AFFILIATE_NELSONS_DOG_FOOD_URL,
   AFFILIATE_NELSONS_DOG_FOOD_PIXEL,
+  AFFILIATE_DENTAL_CAT_FOOD_URL,
+  AFFILIATE_DENTAL_CAT_FOOD_PIXEL,
 } from "@/lib/siteConfig";
 import AffiliateBanner from "@/components/AffiliateBanner";
 
@@ -104,6 +106,14 @@ export default function FeedingCalculator() {
           url={AFFILIATE_NELSONS_DOG_FOOD_URL}
           pixelUrl={AFFILIATE_NELSONS_DOG_FOOD_PIXEL || undefined}
           label="ネルソンズドッグフード"
+        />
+      )}
+
+      {isValid && AFFILIATE_DENTAL_CAT_FOOD_URL && (
+        <AffiliateBanner
+          url={AFFILIATE_DENTAL_CAT_FOOD_URL}
+          pixelUrl={AFFILIATE_DENTAL_CAT_FOOD_PIXEL || undefined}
+          label="特許取得成分配合！『カナガンデンタルキャットフード』"
         />
       )}
     </div>
