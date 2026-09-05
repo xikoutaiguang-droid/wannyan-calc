@@ -5,14 +5,29 @@ import { calcMER, calcFoodGrams, LIFE_STAGE_LABELS, type LifeStage } from "@/lib
 import {
   AFFILIATE_GUT_SUPPLEMENT_URL,
   AFFILIATE_GUT_SUPPLEMENT_PIXEL,
-  AFFILIATE_NELSONS_DOG_FOOD_URL,
-  AFFILIATE_NELSONS_DOG_FOOD_PIXEL,
   AFFILIATE_DENTAL_CAT_FOOD_URL,
   AFFILIATE_DENTAL_CAT_FOOD_PIXEL,
+  AFFILIATE_NELSONS_DOG_FOOD_URL,
+  AFFILIATE_NELSONS_DOG_FOOD_PIXEL,
+  AFFILIATE_MOGWAN_DOG_FOOD_URL,
+  AFFILIATE_MOGWAN_DOG_FOOD_PIXEL,
+  AFFILIATE_PEROLIKO_DOG_FOOD_URL,
+  AFFILIATE_PEROLIKO_DOG_FOOD_PIXEL,
 } from "@/lib/siteConfig";
-import AffiliateBanner from "@/components/AffiliateBanner";
+import AffiliateSupplementList from "@/components/AffiliateSupplementList";
 
 const STAGES = Object.keys(LIFE_STAGE_LABELS) as LifeStage[];
+
+const CAT_FOODS = [
+  { concern: "腸内環境", label: "毎日爽快(植物酵素＆乳酸菌)", url: AFFILIATE_GUT_SUPPLEMENT_URL, pixelUrl: AFFILIATE_GUT_SUPPLEMENT_PIXEL },
+  { concern: "歯", label: "カナガンデンタルキャットフード", url: AFFILIATE_DENTAL_CAT_FOOD_URL, pixelUrl: AFFILIATE_DENTAL_CAT_FOOD_PIXEL },
+].filter((item) => item.url);
+
+const DOG_FOODS = [
+  { concern: "総合", label: "ネルソンズドッグフード", url: AFFILIATE_NELSONS_DOG_FOOD_URL, pixelUrl: AFFILIATE_NELSONS_DOG_FOOD_PIXEL },
+  { concern: "プレミアム", label: "モグワン(グレインフリー・チキン生肉＆サーモン)", url: AFFILIATE_MOGWAN_DOG_FOOD_URL, pixelUrl: AFFILIATE_MOGWAN_DOG_FOOD_PIXEL },
+  { concern: "アレルギー配慮", label: "ペロリコドッグフード アレカット", url: AFFILIATE_PEROLIKO_DOG_FOOD_URL, pixelUrl: AFFILIATE_PEROLIKO_DOG_FOOD_PIXEL },
+].filter((item) => item.url);
 
 export default function FeedingCalculator() {
   const [weightInput, setWeightInput] = useState<string>("4");
@@ -93,29 +108,8 @@ export default function FeedingCalculator() {
         </div>
       )}
 
-      {isValid && AFFILIATE_GUT_SUPPLEMENT_URL && (
-        <AffiliateBanner
-          url={AFFILIATE_GUT_SUPPLEMENT_URL}
-          pixelUrl={AFFILIATE_GUT_SUPPLEMENT_PIXEL || undefined}
-          label="猫用サプリ「腸の健康維持に」獣医師がおススメ【毎日爽快 植物酵素＆乳酸菌】"
-        />
-      )}
-
-      {isValid && AFFILIATE_NELSONS_DOG_FOOD_URL && (
-        <AffiliateBanner
-          url={AFFILIATE_NELSONS_DOG_FOOD_URL}
-          pixelUrl={AFFILIATE_NELSONS_DOG_FOOD_PIXEL || undefined}
-          label="ネルソンズドッグフード"
-        />
-      )}
-
-      {isValid && AFFILIATE_DENTAL_CAT_FOOD_URL && (
-        <AffiliateBanner
-          url={AFFILIATE_DENTAL_CAT_FOOD_URL}
-          pixelUrl={AFFILIATE_DENTAL_CAT_FOOD_PIXEL || undefined}
-          label="特許取得成分配合！『カナガンデンタルキャットフード』"
-        />
-      )}
+      {isValid && <AffiliateSupplementList heading="ねこちゃん向けフード・サプリ" items={CAT_FOODS} />}
+      {isValid && <AffiliateSupplementList heading="わんちゃん向けフード" items={DOG_FOODS} />}
     </div>
   );
 }

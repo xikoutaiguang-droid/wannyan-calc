@@ -92,3 +92,11 @@ export const AFFILIATE_DOG_WALK_ACCESSORY_PIXEL = process.env.NEXT_PUBLIC_AFFILI
 // ごはんの量計算ツールに追加(カナガンデンタルキャットフード)
 export const AFFILIATE_DENTAL_CAT_FOOD_URL = process.env.NEXT_PUBLIC_AFFILIATE_DENTAL_CAT_FOOD_URL ?? "";
 export const AFFILIATE_DENTAL_CAT_FOOD_PIXEL = process.env.NEXT_PUBLIC_AFFILIATE_DENTAL_CAT_FOOD_PIXEL ?? "";
+
+// ごはんの量計算ツールに追加(プレミアムドッグフード『モグワン』)
+export const AFFILIATE_MOGWAN_DOG_FOOD_URL = process.env.NEXT_PUBLIC_AFFILIATE_MOGWAN_DOG_FOOD_URL ?? "";
+export const AFFILIATE_MOGWAN_DOG_FOOD_PIXEL = process.env.NEXT_PUBLIC_AFFILIATE_MOGWAN_DOG_FOOD_PIXEL ?? "";
+
+// ごはんの量計算ツールに追加(ペロリコドッグフード アレカット: アレルギー配慮)
+export const AFFILIATE_PEROLIKO_DOG_FOOD_URL = process.env.NEXT_PUBLIC_AFFILIATE_PEROLIKO_DOG_FOOD_URL ?? "";
+export const AFFILIATE_PEROLIKO_DOG_FOOD_PIXEL = process.env.NEXT_PUBLIC_AFFILIATE_PEROLIKO_DOG_FOOD_PIXEL ?? "";
