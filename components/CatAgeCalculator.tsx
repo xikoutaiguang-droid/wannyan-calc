@@ -15,6 +15,8 @@ import {
   AFFILIATE_HEART_SUPPLEMENT_PIXEL,
   AFFILIATE_CATLOG_URL,
   AFFILIATE_CATLOG_PIXEL,
+  AFFILIATE_CAT_FOOD_URL,
+  AFFILIATE_CAT_FOOD_PIXEL,
 } from "@/lib/siteConfig";
 import AffiliateBanner from "@/components/AffiliateBanner";
 import AffiliateSupplementList from "@/components/AffiliateSupplementList";
@@ -75,6 +77,14 @@ export default function CatAgeCalculator() {
           url={AFFILIATE_CATLOG_URL}
           pixelUrl={AFFILIATE_CATLOG_PIXEL || undefined}
           label="すべては猫様のために【Catlog】"
+        />
+      )}
+
+      {AFFILIATE_CAT_FOOD_URL && (
+        <AffiliateBanner
+          url={AFFILIATE_CAT_FOOD_URL}
+          pixelUrl={AFFILIATE_CAT_FOOD_PIXEL || undefined}
+          label="プレミアムキャットフード『ジャガー』"
         />
       )}
     </div>

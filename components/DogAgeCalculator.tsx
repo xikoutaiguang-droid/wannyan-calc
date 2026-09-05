@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { calcDogHumanAge, getDogLifeStage, DOG_SIZE_LABELS, type DogSize } from "@/lib/petAge";
+import { AFFILIATE_DOG_FOOD_URL, AFFILIATE_DOG_FOOD_PIXEL } from "@/lib/siteConfig";
+import AffiliateBanner from "@/components/AffiliateBanner";
 
 const SIZES = Object.keys(DOG_SIZE_LABELS) as DogSize[];
 
@@ -58,6 +60,14 @@ export default function DogAgeCalculator() {
           </p>
           <p className="mt-2 text-sm font-medium">{lifeStage}</p>
         </div>
+      )}
+
+      {AFFILIATE_DOG_FOOD_URL && (
+        <AffiliateBanner
+          url={AFFILIATE_DOG_FOOD_URL}
+          pixelUrl={AFFILIATE_DOG_FOOD_PIXEL || undefined}
+          label="カナガンドッグフード ハイランドフィースト"
+        />
       )}
     </div>
   );

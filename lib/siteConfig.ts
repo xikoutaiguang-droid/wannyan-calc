@@ -16,8 +16,12 @@ export const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION ?? "";
 
 // ペットフード・ペット保険などのアフィリエイトリンク。ASP提携が完了するまでは空のままにし、
 // 各コンポーネント側で「値がある場合のみ表示」する(未設定なら黙って出さない設計)。
+// 猫の年齢計算ページに常時表示(プレミアムキャットフード『ジャガー』)
 export const AFFILIATE_CAT_FOOD_URL = process.env.NEXT_PUBLIC_AFFILIATE_CAT_FOOD_URL ?? "";
+export const AFFILIATE_CAT_FOOD_PIXEL = process.env.NEXT_PUBLIC_AFFILIATE_CAT_FOOD_PIXEL ?? "";
+// 犬の年齢計算ページに常時表示(カナガンドッグフード ハイランドフィースト)
 export const AFFILIATE_DOG_FOOD_URL = process.env.NEXT_PUBLIC_AFFILIATE_DOG_FOOD_URL ?? "";
+export const AFFILIATE_DOG_FOOD_PIXEL = process.env.NEXT_PUBLIC_AFFILIATE_DOG_FOOD_PIXEL ?? "";
 export const AFFILIATE_PET_INSURANCE_URL = process.env.NEXT_PUBLIC_AFFILIATE_PET_INSURANCE_URL ?? "";
 
 // A8.net「猫用サプリ」シリーズの広告リンク・計測用ピクセル。
