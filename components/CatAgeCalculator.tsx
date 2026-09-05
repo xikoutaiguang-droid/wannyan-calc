@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { calcCatHumanAge, getCatLifeStage } from "@/lib/petAge";
+import { AFFILIATE_SENIOR_CAT_SUPPLEMENT_URL, AFFILIATE_SENIOR_CAT_SUPPLEMENT_PIXEL } from "@/lib/siteConfig";
+import AffiliateBanner from "@/components/AffiliateBanner";
 
 export default function CatAgeCalculator() {
   const [ageInput, setAgeInput] = useState<string>("2");
@@ -10,6 +12,7 @@ export default function CatAgeCalculator() {
   const isValid = Number.isFinite(ageYears) && ageYears >= 0 && ageInput.trim() !== "";
   const humanAge = isValid ? calcCatHumanAge(ageYears) : 0;
   const lifeStage = isValid ? getCatLifeStage(ageYears) : "";
+  const isSenior = lifeStage === "シニア期の入り口" || lifeStage === "高齢期";
 
   return (
     <div>
@@ -39,6 +42,14 @@ export default function CatAgeCalculator() {
           </p>
           <p className="mt-2 text-sm font-medium">{lifeStage}</p>
         </div>
+      )}
+
+      {isValid && isSenior && AFFILIATE_SENIOR_CAT_SUPPLEMENT_URL && (
+        <AffiliateBanner
+          url={AFFILIATE_SENIOR_CAT_SUPPLEMENT_URL}
+          pixelUrl={AFFILIATE_SENIOR_CAT_SUPPLEMENT_PIXEL || undefined}
+          label="猫用サプリ「シニア猫の健康維持に」楽天ポイントが使える！貯まる！【毎日一緒 DHA＆EPA】"
+        />
       )}
     </div>
   );

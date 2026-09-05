@@ -19,3 +19,10 @@ export const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION ?? "";
 export const AFFILIATE_CAT_FOOD_URL = process.env.NEXT_PUBLIC_AFFILIATE_CAT_FOOD_URL ?? "";
 export const AFFILIATE_DOG_FOOD_URL = process.env.NEXT_PUBLIC_AFFILIATE_DOG_FOOD_URL ?? "";
 export const AFFILIATE_PET_INSURANCE_URL = process.env.NEXT_PUBLIC_AFFILIATE_PET_INSURANCE_URL ?? "";
+
+// A8.net「猫用サプリ(シニア猫の健康維持向け)」の広告リンク。
+// 猫の年齢計算機でシニア期/高齢期と判定された場合にのみ表示する。
+export const AFFILIATE_SENIOR_CAT_SUPPLEMENT_URL =
+  process.env.NEXT_PUBLIC_AFFILIATE_SENIOR_CAT_SUPPLEMENT_URL ?? "";
+export const AFFILIATE_SENIOR_CAT_SUPPLEMENT_PIXEL =
+  process.env.NEXT_PUBLIC_AFFILIATE_SENIOR_CAT_SUPPLEMENT_PIXEL ?? "";
