@@ -8,6 +8,8 @@ import {
   type BcsAnswer,
   type WeightLossSpecies,
 } from "@/lib/weightManagement";
+import { AFFILIATE_WEIGHT_SUPPLEMENT_URL, AFFILIATE_WEIGHT_SUPPLEMENT_PIXEL } from "@/lib/siteConfig";
+import AffiliateBanner from "@/components/AffiliateBanner";
 
 export default function WeightManagementCalculator() {
   const [answers, setAnswers] = useState<Record<string, BcsAnswer>>({});
@@ -136,6 +138,14 @@ export default function WeightManagementCalculator() {
               </p>
             )}
           </div>
+        )}
+
+        {plan && species === "cat" && AFFILIATE_WEIGHT_SUPPLEMENT_URL && (
+          <AffiliateBanner
+            url={AFFILIATE_WEIGHT_SUPPLEMENT_URL}
+            pixelUrl={AFFILIATE_WEIGHT_SUPPLEMENT_PIXEL || undefined}
+            label="猫用サプリ「体重・糖質・血糖値の健康維持に」【毎日習慣 サラシア＆イヌリン】初回半額"
+          />
         )}
       </div>
     </div>

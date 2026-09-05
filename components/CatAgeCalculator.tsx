@@ -2,8 +2,30 @@
 
 import { useState } from "react";
 import { calcCatHumanAge, getCatLifeStage } from "@/lib/petAge";
-import { AFFILIATE_SENIOR_CAT_SUPPLEMENT_URL, AFFILIATE_SENIOR_CAT_SUPPLEMENT_PIXEL } from "@/lib/siteConfig";
+import {
+  AFFILIATE_SENIOR_CAT_SUPPLEMENT_URL,
+  AFFILIATE_SENIOR_CAT_SUPPLEMENT_PIXEL,
+  AFFILIATE_LIVER_SUPPLEMENT_URL,
+  AFFILIATE_LIVER_SUPPLEMENT_PIXEL,
+  AFFILIATE_JOINT_SUPPLEMENT_URL,
+  AFFILIATE_JOINT_SUPPLEMENT_PIXEL,
+  AFFILIATE_EYE_SUPPLEMENT_URL,
+  AFFILIATE_EYE_SUPPLEMENT_PIXEL,
+  AFFILIATE_HEART_SUPPLEMENT_URL,
+  AFFILIATE_HEART_SUPPLEMENT_PIXEL,
+  AFFILIATE_CATLOG_URL,
+  AFFILIATE_CATLOG_PIXEL,
+} from "@/lib/siteConfig";
 import AffiliateBanner from "@/components/AffiliateBanner";
+import AffiliateSupplementList from "@/components/AffiliateSupplementList";
+
+const SENIOR_SUPPLEMENTS = [
+  { concern: "総合", label: "毎日一緒(DHA＆EPA)", url: AFFILIATE_SENIOR_CAT_SUPPLEMENT_URL, pixelUrl: AFFILIATE_SENIOR_CAT_SUPPLEMENT_PIXEL },
+  { concern: "肝臓", label: "毎日良肝(肝臓エキス＆プラセンタ)", url: AFFILIATE_LIVER_SUPPLEMENT_URL, pixelUrl: AFFILIATE_LIVER_SUPPLEMENT_PIXEL },
+  { concern: "関節", label: "毎日散歩(グルコサミン＆イミダゾールペプチド)", url: AFFILIATE_JOINT_SUPPLEMENT_URL, pixelUrl: AFFILIATE_JOINT_SUPPLEMENT_PIXEL },
+  { concern: "目", label: "毎日愛眼(ブルーベリー＆ルテイン)", url: AFFILIATE_EYE_SUPPLEMENT_URL, pixelUrl: AFFILIATE_EYE_SUPPLEMENT_PIXEL },
+  { concern: "心臓", label: "毎日健心(コエンザイムQ10＆フランス海岸松)", url: AFFILIATE_HEART_SUPPLEMENT_URL, pixelUrl: AFFILIATE_HEART_SUPPLEMENT_PIXEL },
+].filter((item) => item.url);
 
 export default function CatAgeCalculator() {
   const [ageInput, setAgeInput] = useState<string>("2");
@@ -44,11 +66,15 @@ export default function CatAgeCalculator() {
         </div>
       )}
 
-      {isValid && isSenior && AFFILIATE_SENIOR_CAT_SUPPLEMENT_URL && (
+      {isValid && isSenior && (
+        <AffiliateSupplementList heading="気になる部位から選ぶ猫用サプリ" items={SENIOR_SUPPLEMENTS} />
+      )}
+
+      {AFFILIATE_CATLOG_URL && (
         <AffiliateBanner
-          url={AFFILIATE_SENIOR_CAT_SUPPLEMENT_URL}
-          pixelUrl={AFFILIATE_SENIOR_CAT_SUPPLEMENT_PIXEL || undefined}
-          label="猫用サプリ「シニア猫の健康維持に」楽天ポイントが使える！貯まる！【毎日一緒 DHA＆EPA】"
+          url={AFFILIATE_CATLOG_URL}
+          pixelUrl={AFFILIATE_CATLOG_PIXEL || undefined}
+          label="すべては猫様のために【Catlog】"
         />
       )}
     </div>
