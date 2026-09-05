@@ -55,3 +55,19 @@ export const AFFILIATE_GUT_SUPPLEMENT_PIXEL = process.env.NEXT_PUBLIC_AFFILIATE_
 // 猫の年齢計算ページに常時表示(Catlog: 見守りデバイス。年齢を問わず関係するため)
 export const AFFILIATE_CATLOG_URL = process.env.NEXT_PUBLIC_AFFILIATE_CATLOG_URL ?? "";
 export const AFFILIATE_CATLOG_PIXEL = process.env.NEXT_PUBLIC_AFFILIATE_CATLOG_PIXEL ?? "";
+
+// 犬の年齢計算ページで「体格」に応じて出し分ける専用フード
+export const AFFILIATE_SMALL_DOG_FOOD_URL = process.env.NEXT_PUBLIC_AFFILIATE_SMALL_DOG_FOOD_URL ?? "";
+export const AFFILIATE_SMALL_DOG_FOOD_PIXEL = process.env.NEXT_PUBLIC_AFFILIATE_SMALL_DOG_FOOD_PIXEL ?? "";
+export const AFFILIATE_LARGE_DOG_FOOD_URL = process.env.NEXT_PUBLIC_AFFILIATE_LARGE_DOG_FOOD_URL ?? "";
+export const AFFILIATE_LARGE_DOG_FOOD_PIXEL = process.env.NEXT_PUBLIC_AFFILIATE_LARGE_DOG_FOOD_PIXEL ?? "";
+
+// ごはんの量計算ツールに追加(ネルソンズドッグフード)
+export const AFFILIATE_NELSONS_DOG_FOOD_URL = process.env.NEXT_PUBLIC_AFFILIATE_NELSONS_DOG_FOOD_URL ?? "";
+export const AFFILIATE_NELSONS_DOG_FOOD_PIXEL = process.env.NEXT_PUBLIC_AFFILIATE_NELSONS_DOG_FOOD_PIXEL ?? "";
+
+// 体重管理ツール専用・犬用(安心犬活)。猫の毎日習慣と対になる位置づけ。
+export const AFFILIATE_DOG_HEALTH_SUPPLEMENT_URL =
+  process.env.NEXT_PUBLIC_AFFILIATE_DOG_HEALTH_SUPPLEMENT_URL ?? "";
+export const AFFILIATE_DOG_HEALTH_SUPPLEMENT_PIXEL =
+  process.env.NEXT_PUBLIC_AFFILIATE_DOG_HEALTH_SUPPLEMENT_PIXEL ?? "";

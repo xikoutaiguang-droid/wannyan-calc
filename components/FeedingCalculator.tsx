@@ -2,7 +2,12 @@
 
 import { useState } from "react";
 import { calcMER, calcFoodGrams, LIFE_STAGE_LABELS, type LifeStage } from "@/lib/feeding";
-import { AFFILIATE_GUT_SUPPLEMENT_URL, AFFILIATE_GUT_SUPPLEMENT_PIXEL } from "@/lib/siteConfig";
+import {
+  AFFILIATE_GUT_SUPPLEMENT_URL,
+  AFFILIATE_GUT_SUPPLEMENT_PIXEL,
+  AFFILIATE_NELSONS_DOG_FOOD_URL,
+  AFFILIATE_NELSONS_DOG_FOOD_PIXEL,
+} from "@/lib/siteConfig";
 import AffiliateBanner from "@/components/AffiliateBanner";
 
 const STAGES = Object.keys(LIFE_STAGE_LABELS) as LifeStage[];
@@ -91,6 +96,14 @@ export default function FeedingCalculator() {
           url={AFFILIATE_GUT_SUPPLEMENT_URL}
           pixelUrl={AFFILIATE_GUT_SUPPLEMENT_PIXEL || undefined}
           label="猫用サプリ「腸の健康維持に」獣医師がおススメ【毎日爽快 植物酵素＆乳酸菌】"
+        />
+      )}
+
+      {isValid && AFFILIATE_NELSONS_DOG_FOOD_URL && (
+        <AffiliateBanner
+          url={AFFILIATE_NELSONS_DOG_FOOD_URL}
+          pixelUrl={AFFILIATE_NELSONS_DOG_FOOD_PIXEL || undefined}
+          label="ネルソンズドッグフード"
         />
       )}
     </div>

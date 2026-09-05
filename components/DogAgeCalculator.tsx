@@ -2,7 +2,14 @@
 
 import { useState } from "react";
 import { calcDogHumanAge, getDogLifeStage, DOG_SIZE_LABELS, type DogSize } from "@/lib/petAge";
-import { AFFILIATE_DOG_FOOD_URL, AFFILIATE_DOG_FOOD_PIXEL } from "@/lib/siteConfig";
+import {
+  AFFILIATE_DOG_FOOD_URL,
+  AFFILIATE_DOG_FOOD_PIXEL,
+  AFFILIATE_SMALL_DOG_FOOD_URL,
+  AFFILIATE_SMALL_DOG_FOOD_PIXEL,
+  AFFILIATE_LARGE_DOG_FOOD_URL,
+  AFFILIATE_LARGE_DOG_FOOD_PIXEL,
+} from "@/lib/siteConfig";
 import AffiliateBanner from "@/components/AffiliateBanner";
 
 const SIZES = Object.keys(DOG_SIZE_LABELS) as DogSize[];
@@ -67,6 +74,22 @@ export default function DogAgeCalculator() {
           url={AFFILIATE_DOG_FOOD_URL}
           pixelUrl={AFFILIATE_DOG_FOOD_PIXEL || undefined}
           label="カナガンドッグフード ハイランドフィースト"
+        />
+      )}
+
+      {size === "small" && AFFILIATE_SMALL_DOG_FOOD_URL && (
+        <AffiliateBanner
+          url={AFFILIATE_SMALL_DOG_FOOD_URL}
+          pixelUrl={AFFILIATE_SMALL_DOG_FOOD_PIXEL || undefined}
+          label="小型犬が喜びサポートする選び抜いた厳選素材"
+        />
+      )}
+
+      {size !== "small" && AFFILIATE_LARGE_DOG_FOOD_URL && (
+        <AffiliateBanner
+          url={AFFILIATE_LARGE_DOG_FOOD_URL}
+          pixelUrl={AFFILIATE_LARGE_DOG_FOOD_PIXEL || undefined}
+          label="中大型犬向けのプレミアフード ウルフインサイト"
         />
       )}
     </div>
