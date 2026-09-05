@@ -11,8 +11,8 @@ import {
 import {
   AFFILIATE_WEIGHT_SUPPLEMENT_URL,
   AFFILIATE_WEIGHT_SUPPLEMENT_PIXEL,
-  AFFILIATE_DOG_HEALTH_SUPPLEMENT_URL,
-  AFFILIATE_DOG_HEALTH_SUPPLEMENT_PIXEL,
+  AFFILIATE_DOG_WEIGHT_SUPPLEMENT_URL,
+  AFFILIATE_DOG_WEIGHT_SUPPLEMENT_PIXEL,
 } from "@/lib/siteConfig";
 import AffiliateBanner from "@/components/AffiliateBanner";
 
@@ -153,11 +153,11 @@ export default function WeightManagementCalculator() {
           />
         )}
 
-        {plan && species === "dog" && AFFILIATE_DOG_HEALTH_SUPPLEMENT_URL && (
+        {plan && species === "dog" && AFFILIATE_DOG_WEIGHT_SUPPLEMENT_URL && (
           <AffiliateBanner
-            url={AFFILIATE_DOG_HEALTH_SUPPLEMENT_URL}
-            pixelUrl={AFFILIATE_DOG_HEALTH_SUPPLEMENT_PIXEL || undefined}
-            label="安心犬活"
+            url={AFFILIATE_DOG_WEIGHT_SUPPLEMENT_URL}
+            pixelUrl={AFFILIATE_DOG_WEIGHT_SUPPLEMENT_PIXEL || undefined}
+            label="犬用サプリ「体重・糖質・血糖値の健康維持に」【毎日習慣 サラシア＆イヌリン】初回半額"
           />
         )}
       </div>

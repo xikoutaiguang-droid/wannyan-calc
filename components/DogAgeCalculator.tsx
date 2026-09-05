@@ -9,10 +9,24 @@ import {
   AFFILIATE_SMALL_DOG_FOOD_PIXEL,
   AFFILIATE_LARGE_DOG_FOOD_URL,
   AFFILIATE_LARGE_DOG_FOOD_PIXEL,
+  AFFILIATE_DOG_WALK_ACCESSORY_URL,
+  AFFILIATE_DOG_WALK_ACCESSORY_PIXEL,
+  AFFILIATE_DOG_HEALTH_SUPPLEMENT_URL,
+  AFFILIATE_DOG_HEALTH_SUPPLEMENT_PIXEL,
+  AFFILIATE_DOG_EYE_SUPPLEMENT_URL,
+  AFFILIATE_DOG_EYE_SUPPLEMENT_PIXEL,
+  AFFILIATE_SENIOR_DOG_FOOD_URL,
+  AFFILIATE_SENIOR_DOG_FOOD_PIXEL,
 } from "@/lib/siteConfig";
 import AffiliateBanner from "@/components/AffiliateBanner";
+import AffiliateSupplementList from "@/components/AffiliateSupplementList";
 
 const SIZES = Object.keys(DOG_SIZE_LABELS) as DogSize[];
+
+const SENIOR_DOG_SUPPLEMENTS = [
+  { concern: "総合", label: "安心犬活", url: AFFILIATE_DOG_HEALTH_SUPPLEMENT_URL, pixelUrl: AFFILIATE_DOG_HEALTH_SUPPLEMENT_PIXEL },
+  { concern: "目", label: "毎日愛眼(ブルーベリー＆ルテイン)犬用", url: AFFILIATE_DOG_EYE_SUPPLEMENT_URL, pixelUrl: AFFILIATE_DOG_EYE_SUPPLEMENT_PIXEL },
+].filter((item) => item.url);
 
 export default function DogAgeCalculator() {
   const [ageInput, setAgeInput] = useState<string>("2");
@@ -22,6 +36,7 @@ export default function DogAgeCalculator() {
   const isValid = Number.isFinite(ageYears) && ageYears >= 0 && ageInput.trim() !== "";
   const humanAge = isValid ? calcDogHumanAge(ageYears, size) : 0;
   const lifeStage = isValid ? getDogLifeStage(ageYears, size) : "";
+  const isSenior = lifeStage === "シニア期の入り口" || lifeStage === "高齢期";
 
   return (
     <div>
@@ -69,6 +84,18 @@ export default function DogAgeCalculator() {
         </div>
       )}
 
+      {isValid && isSenior && (
+        <AffiliateSupplementList heading="気になる部位から選ぶ犬用サプリ" items={SENIOR_DOG_SUPPLEMENTS} />
+      )}
+
+      {isValid && isSenior && AFFILIATE_SENIOR_DOG_FOOD_URL && (
+        <AffiliateBanner
+          url={AFFILIATE_SENIOR_DOG_FOOD_URL}
+          pixelUrl={AFFILIATE_SENIOR_DOG_FOOD_PIXEL || undefined}
+          label="シニア犬の健康を、毎日の食事からトータルサポート！【モグワンドッグフード シニア用】"
+        />
+      )}
+
       {AFFILIATE_DOG_FOOD_URL && (
         <AffiliateBanner
           url={AFFILIATE_DOG_FOOD_URL}
@@ -90,6 +117,14 @@ export default function DogAgeCalculator() {
           url={AFFILIATE_LARGE_DOG_FOOD_URL}
           pixelUrl={AFFILIATE_LARGE_DOG_FOOD_PIXEL || undefined}
           label="中大型犬向けのプレミアフード ウルフインサイト"
+        />
+      )}
+
+      {AFFILIATE_DOG_WALK_ACCESSORY_URL && (
+        <AffiliateBanner
+          url={AFFILIATE_DOG_WALK_ACCESSORY_URL}
+          pixelUrl={AFFILIATE_DOG_WALK_ACCESSORY_PIXEL || undefined}
+          label="犬の散歩の必需品＋【うんキャッチ】で手づかみにサヨナラ。"
         />
       )}
     </div>
