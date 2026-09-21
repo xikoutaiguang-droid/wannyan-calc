@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono, Shippori_Mincho } from "next/font/google";
 import "./globals.css";
@@ -51,15 +50,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="ja"
       className={`${geistSans.variable} ${geistMono.variable} ${shipporiMincho.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <head>
+        {/* AdSenseのタグは next/script を使わず、素の<script>として<head>に置く。
+            next/script はどの strategy でもサーバーが返す生HTMLには
+            <link rel="preload"> しか残さず、<script>はブラウザ上でJSが動いて初めて
+            生成される。AdSenseのクローラはJSを実行しないため、それだと
+            所有権の確認が通らない（GEMLENSと金買取比較で同じ原因に当たった）。 */}
         {ADSENSE_PUBLISHER_ID && (
-          <Script
+          <script
             async
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${ADSENSE_PUBLISHER_ID}`}
             crossOrigin="anonymous"
-            strategy="afterInteractive"
           />
         )}
+      </head>
+      <body className="min-h-full flex flex-col">
         <Nav />
         <main className="flex-1 pb-20 sm:pb-0">{children}</main>
         <Footer />
